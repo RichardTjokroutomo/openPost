@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body class="bg-secondary text-white">
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                       <!-- FORM STARTS -->
+                       <form action="/dashboard/post" method="POST">
+                        <!-- title-->
+                        <div class="mb-3">
+                          <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                        </div>
+                        
+                        <!-- content-->
+                        <div class="mb-3">
+                            <textarea class="form-control" name="content" rows="3" placeholder="your content here"></textarea>
+                          </div>
+                        <!-- submit-->
+                        <button type="submit" class="btn btn-dark">Submit</button>
+                      </form> 
+
+                      <!-- FORM ENDS-->
+                      <a href="/dashboard/posts" class="card-link link-dark">back to dashboard</a>
+                      <a href="/" class="card-link link-dark">home</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/bootstrap.js"></script>
+</body>
+</html>

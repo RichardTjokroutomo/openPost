@@ -1,0 +1,5 @@
+.updateAlert {
+    display: none;
+    visibility: hidden;
+    text-decoration: dashed;
+}
