@@ -5,7 +5,7 @@ const User = require("../../models/userDB");
 const Post = require("../../models/postDB");
 
 const Router = express.Router({mergeParams:true});
-const breaker = "=====================================================";
+
 
 // MIDDLEWARE
 // ===============================================================================

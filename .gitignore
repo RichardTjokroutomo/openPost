@@ -1,0 +1,5 @@
+.env
+READ-BEFORE-DEPLOY.txt
+node_modules/
+routes/api/postApi.js
+dbReset.js

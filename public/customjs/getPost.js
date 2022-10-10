@@ -1,9 +1,13 @@
 
 // DECLARATIONS
 // ===============================================================================
-const rootUrl ="http://localhost:3000" || process.env.ROOT_URL;
+//const rootUrl ="http://localhost:8080" || process.env.ROOT_URL;
+//const rootUrl = "http://localhost:3000"
+//const rootUrl = "https://open-post-api.herokuapp.com";
+const rootUrl = "https://ill-cyan-sea-urchin-kit.cyclic.app";
 const loadMoreButton = document.querySelector("#load");
 const updateAlert = document.querySelector("#updateAlert");
+const noUpdateAlert = document.querySelector("#noUpdateAlert");
 
 let latestIndex = 0;  // gets the sNum of the newest post
 let postsLoaded = 0;  // how many posts the page has loaded so far
@@ -17,9 +21,7 @@ const getLatestIndexINIT = async()=>{
     const index = await fetch(url);
     const parsedIndex = await index.json();
 
-    console.log(`there are ${parsedIndex.latest} posts`);
     latestIndex = parsedIndex.latest;
-    console.log(`there are ${latestIndex} posts`);
 }
 
 // this function is called when user clicks the "load more" button
@@ -60,13 +62,13 @@ const loadMoreHandler = async ()=>{
     cardBody.classList.add("card-body");
 
     // content
-    const title = document.createElement("h5");
-    title.classList.add("card-title");
-    title.innerText = postLists[i].title;
+    const titleText = document.createElement("h5");
+    titleText.classList.add("card-title");
+    titleText.innerText = postLists[i].title;
 
-    const content = document.createElement("p");
-    content.classList.add("card-text");
-    content.innerText = postLists[i].content;
+    const contentText = document.createElement("p");
+    contentText.classList.add("card-text");
+    contentText.innerText = postLists[i].content;
 
     // ADD AUTHOR HERE LATER ON
     const author = document.createElement("p");
@@ -75,8 +77,8 @@ const loadMoreHandler = async ()=>{
     author.innerText = text;
 
     // adding content to cardbody
-    cardBody.appendChild(title);
-    cardBody.appendChild(content);
+    cardBody.appendChild(titleText);
+    cardBody.appendChild(contentText);
     cardBody.appendChild(author);
 
     // adding card body to cardDiv
@@ -123,15 +125,18 @@ const checkLatestPosts = async ()=>{
     if(parsedIndex.latest != latestIndex){
         console.log("update!");
         updateAlert.classList.remove("updateAlert");
+        noUpdateAlert.classList.add("updateAlert");
     }
     else{
         console.log("nothing new....");
     }
 }
 
+
+
 // EVENTS
 // ===============================================================================
-loadMoreButton.addEventListener("click", loadMoreHandler);
+loadMoreButton.addEventListener("click", function (){ loadMoreHandler()});
 
 
 // CALLED DURING INIT

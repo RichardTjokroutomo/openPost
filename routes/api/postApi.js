@@ -3,7 +3,6 @@
 const express = require("express");
 const Post = require("../../models/postDB");
 const User = require("../../models/userDB");
-const breaker = "===================================================";
 
 // SETUP
 // ===============================================================================
@@ -19,16 +18,10 @@ route.get("/index", async (req, resp)=>{
         latestPost = post;
     };
     const index = latestPost.sNum;
-
-    console.log("/api/index called!");
-    console.log(index);
-    console.log(latestPost);
     resp.send({latest: index});
 });
 
 route.get("/loadmore", async (req, resp)=>{
-    console.log(breaker);
-    console.log("/loadmore called!");
     const {latest_index, posts_loaded} = req.query;
     const startingSnum = latest_index-posts_loaded;
 
@@ -39,7 +32,6 @@ route.get("/loadmore", async (req, resp)=>{
       //console.log(idx);
       if(idx >= 0){
         const post = await Post.findOne({sNum: idx});
-        console.log(postLists);
         postLists.push(post);
       }
     }
@@ -51,9 +43,8 @@ route.get("/loadmore", async (req, resp)=>{
       usernameList.push(username.username);
     }
 
-    reply = {postLists, usernameList}
-
-    console.log(latest_index, posts_loaded);
+    reply = {postLists, usernameList};
+    console.log(reply);
     resp.send(reply);
 });
 
