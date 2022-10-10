@@ -11,7 +11,6 @@ const googleRoute = require("./routes/auth/googleAuth");
 const githubRoute = require("./routes/auth/githubAuth");
 
 const dashboardRoute = require("./routes/dashboard/dashboard");
-const postApiRoute = require("./routes/api/postApi");
 //const { allowedNodeEnvironmentFlags } = require("process");
 //const { markAsUntransferable } = require("worker_threads");
 
@@ -81,9 +80,6 @@ app.use("/user", localRoute);
 app.use("/google", googleRoute);
 app.use("/github", githubRoute);
 app.use("/dashboard", dashboardRoute);
-
-// api, will be deployed separately.
-app.use("/api", postApiRoute);
 
 // in case some error happened
 app.use((err, req, resp, next)=>{
