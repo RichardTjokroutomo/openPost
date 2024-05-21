@@ -4,7 +4,9 @@
 //const rootUrl ="http://localhost:8080" || process.env.ROOT_URL;
 //const rootUrl = "http://localhost:3000"
 //const rootUrl = "https://open-post-api.herokuapp.com";
-const rootUrl = "https://ill-cyan-sea-urchin-kit.cyclic.app";
+//const rootUrl = "https://ill-cyan-sea-urchin-kit.cyclic.app";
+const rootUrl = "https://openpost-api.adaptable.app/";
+
 const loadMoreButton = document.querySelector("#load");
 const updateAlert = document.querySelector("#updateAlert");
 const noUpdateAlert = document.querySelector("#noUpdateAlert");
